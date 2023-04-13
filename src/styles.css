@@ -1,0 +1,145 @@
+.container {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgba(216, 241, 230, 0.46) 0.1%,
+    rgba(233, 226, 226, 0.28) 90.1%
+  );
+  box-shadow: 5px 5px rgba(15, 134, 221, 0.5);
+  padding: 50px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  margin-top: 30px;
+  width: 60%;
+  border-radius: 30px;
+  border: 4px solid rgba(15, 134, 221, 0.5);
+}
+
+.localisation,
+.currentTemp {
+  font-family: "Poppins", sans-serif;
+}
+
+.localisation {
+  font-size: 60px;
+  padding-bottom: 20px;
+}
+.currentTemp {
+  font-size: 120px;
+}
+
+.mainTemperature {
+  text-align: right;
+  margin-top: 60px;
+}
+.currentCityAndDate {
+  margin-top: 40px;
+}
+
+.temperatureSystem,
+.currentStatus {
+  font-family: "Sintony", sans-serif;
+}
+
+.currentStatus {
+  line-height: 20px;
+  margin: 0 auto;
+}
+
+.parameters,
+.futureDays {
+  text-align: center;
+}
+
+.dayName,
+.parametersName {
+  font-size: smaller;
+  font-family: "Poppins", sans-serif;
+}
+
+.temperatureDaysMax,
+.temperatureParameters {
+  font-size: 22px;
+  font-family: "Sintony", sans-serif;
+  margin: 0 auto;
+}
+
+.temperatureDaysMin {
+  font-size: 12px;
+}
+
+form {
+  font-family: "Sintony", sans-serif;
+  margin: 0 auto;
+}
+
+.formAndButtons {
+  text-align: center;
+}
+
+.btn {
+  display: block;
+  border-radius: 15px;
+  background: transparent;
+  margin: 0 auto;
+}
+
+.buttonSearch {
+  box-shadow: 3px 3px rgba(15, 134, 221, 0.5);
+  border: 2px solid rgba(15, 134, 221, 0.5);
+}
+.buttonSearch:hover {
+  background: rgba(15, 134, 221, 0.5);
+  box-shadow: 3px 3px rgba(243, 182, 31, 0.5);
+  cursor: pointer;
+  border-color: transparent;
+}
+
+.buttonLocation {
+  box-shadow: 3px 3px rgba(43, 194, 97, 0.5);
+  border: 2px solid rgba(43, 194, 97, 0.5);
+}
+
+.buttonLocation:hover {
+  background: rgba(43, 194, 97, 0.5);
+  box-shadow: 3px 3px rgba(15, 134, 221, 0.5);
+  cursor: pointer;
+  border-color: transparent;
+}
+
+.temperatureSystem {
+  box-shadow: 3px 3px rgba(243, 182, 31, 0.5);
+  border: 2px solid rgba(243, 182, 31, 0.5);
+}
+
+.temperatureSystem:hover {
+  background: rgba(243, 182, 31, 0.5);
+  box-shadow: 3px 3px rgba(43, 194, 97, 0.5);
+  cursor: pointer;
+  border-color: transparent;
+}
+
+.main-image {
+  width: 100%;
+  margin: 20px;
+}
+.units-big-cel {
+  font-size: 20px;
+  position: relative;
+  top: -75px;
+  left: -15px;
+}
+.units-cel {
+  font-size: 16px;
+  position: relative;
+  top: -4px;
+}
+
+.units-min-cel {
+  font-size: 8px;
+  position: relative;
+  top: -4px;
+}
+
+.unitsParameters {
+  font-size: 16px;
+}
