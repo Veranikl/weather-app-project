@@ -21,7 +21,6 @@
     <script
       src="https://kit.fontawesome.com/be39bcd7af.js"
       crossorigin="anonymous"
-      
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   </head>
@@ -43,8 +42,9 @@
 
           <div class="col">
             <h2 class="mainTemperature">
-            <span class="currentTemp" id="currentTemp"></span> <span class="units-big-cel">°C</span>
-          </h2>
+              <span class="currentTemp" id="currentTemp"></span>
+              <span class="units-big-cel">°C</span>
+            </h2>
           </div>
         </div>
       </div>
@@ -59,7 +59,9 @@
               alt="Sunny"
               width="40px"
             />
-            <p class="temperatureDaysMax">40<span class="units-cel">°C</span></p>
+            <p class="temperatureDaysMax">
+              40<span class="units-cel">°C</span>
+            </p>
           </div>
           <div class="col dayName">
             Sunday
@@ -69,7 +71,9 @@
               alt="Sunny"
               width="40px"
             />
-            <p class="temperatureDaysMax">40<span class="units-cel">°C</span></p>
+            <p class="temperatureDaysMax">
+              40<span class="units-cel">°C</span>
+            </p>
           </div>
           <div class="col dayName">
             Monday
@@ -79,7 +83,9 @@
               alt="Sunny"
               width="40px"
             />
-            <p class="temperatureDaysMax">40<span class="units-cel">°C</span></p>
+            <p class="temperatureDaysMax">
+              40<span class="units-cel">°C</span>
+            </p>
           </div>
           <div class="col dayName">
             Tuesday
@@ -89,9 +95,11 @@
               alt="Sunny"
               width="40px"
             />
-            <p class="temperatureDaysMax">40<span class="units-cel">°C</span></p>
-          </div> 
-        
+            <p class="temperatureDaysMax">
+              40<span class="units-cel">°C</span>
+            </p>
+          </div>
+
           <div class="col dayName">
             Wednesday
             <img
@@ -100,9 +108,11 @@
               alt="Sunny"
               width="40px"
             />
-            <p class="temperatureDaysMax">40<span class="units-cel">°C</span></p>
+            <p class="temperatureDaysMax">
+              40<span class="units-cel">°C</span>
+            </p>
           </div>
-           
+
           <div class="col dayName">
             Thursday
             <img
@@ -111,7 +121,9 @@
               alt="Sunny"
               width="40px"
             />
-            <p class="temperatureDaysMax">40<span class="units-cel">°C</span></p>
+            <p class="temperatureDaysMax">
+              40<span class="units-cel">°C</span>
+            </p>
           </div>
           <div class="col dayName">
             Friday
@@ -121,11 +133,10 @@
               alt="Sunny"
               width="40px"
             />
-            <p class="temperatureDaysMax">40<span class="units-cel">°C</span></p>
-          </div> 
-
-
-
+            <p class="temperatureDaysMax">
+              40<span class="units-cel">°C</span>
+            </p>
+          </div>
         </div>
       </div>
       <br />
@@ -140,7 +151,9 @@
               alt="Rain-drops"
               width="40px"
             />
-            <p class="temperatureParameters"> <span id="humidity">40</span><span class="unitsParameters">%</span>
+            <p class="temperatureParameters">
+              <span id="humidity">40</span
+              ><span class="unitsParameters">%</span>
             </p>
           </div>
           <div class="col parametersName">
@@ -151,7 +164,8 @@
               alt="Windsock"
               width="40px"
             />
-            <p class="temperatureParameters"><span id="wind">40</span><span class="unitsParameters"> m/s</span>
+            <p class="temperatureParameters">
+              <span id="wind">40</span><span class="unitsParameters"> m/s</span>
             </p>
           </div>
           <div class="col parametersName">
@@ -162,7 +176,8 @@
               alt="Sunrise"
               width="40px"
             />
-            <p class="temperatureParameters"><span id="sunrise-time">0</span>
+            <p class="temperatureParameters">
+              <span id="sunrise-time">0</span>
             </p>
           </div>
           <div class="col parametersName">
@@ -173,32 +188,53 @@
               alt="Sunset"
               width="40px"
             />
-            <p class="temperatureParameters"><span id="sunset-time">0</span>
-            </p>
+            <p class="temperatureParameters"><span id="sunset-time">0</span></p>
           </div>
         </div>
       </div>
 
       <br />
-<div class="formAndButtons">
-      <form class="row g-3">
-  
-        <div class="col-4">
-
-          <input type="text" class="form-control" id="search-bar" placeholder="🔎 Explore other cities!">
-        </div>
-       <div class="col-2">
-          <button type="submit" class="form-control btn buttonSearch">Search</button>
-        </div>
-        <div class="col-4">
-          <button type="button" class="form-control btn buttonLocation" id="buttonLocation">Use my current location</button>
-        </div>
-        <div class="col-2">
-          <button type="button" class="form-control btn temperatureSystem">°C to °F</button>
-        </div>
-      </form>
-      
-        </div>
-          <script src="src/index.js"></script>
-       </body> 
+      <div class="formAndButtons">
+        <form class="row g-3">
+          <div class="col-4">
+            <input
+              type="text"
+              class="form-control"
+              id="search-bar"
+              placeholder="🔎 Explore other cities!"
+            />
+          </div>
+          <div class="col-2">
+            <button type="submit" class="form-control btn buttonSearch">
+              Search
+            </button>
+          </div>
+          <div class="col-4">
+            <button
+              type="button"
+              class="form-control btn buttonLocation"
+              id="buttonLocation"
+            >
+              Use my current location
+            </button>
+          </div>
+          <div class="col-2">
+            <button type="button" class="form-control btn temperatureSystem">
+              °C to °F
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <p class="sign">
+      <a
+        href="https://github.com/Veranikl/weather-app-project"
+        target="_blank"
+        class="linkToGit"
+        >Open-source code</a
+      >
+      by Veranika Los
+    </p>
+    <script src="src/index.js"></script>
+  </body>
 </html>

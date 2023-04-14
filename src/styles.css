@@ -143,3 +143,19 @@ form {
 .unitsParameters {
   font-size: 16px;
 }
+
+.sign {
+  text-align: center;
+  padding-top: 15px;
+  font-family: "Sintony", sans-serif;
+  font-size: 12px;
+}
+
+.linkToGit {
+  color: rgba(15, 134, 221, 0.5);
+}
+
+.linkToGit:hover {
+  color: rgba(43, 194, 97, 0.5);
+  text-decoration: none;
+}
