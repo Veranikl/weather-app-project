@@ -10,6 +10,15 @@ function weatherData(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    response.data.main.feels_like
+  );
+  document.querySelector("#min-temp").innerHTML = Math.round(
+    response.data.main.temp_min
+  );
+  document.querySelector("#max-temp").innerHTML = Math.round(
+    response.data.main.temp_max
+  );
 }
 
 function searchForm(city) {
