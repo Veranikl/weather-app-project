@@ -30,7 +30,7 @@
 
 .mainTemperature {
   text-align: right;
-  margin-top: 60px;
+  margin-top: 80px;
 }
 .currentCityAndDate {
   margin-top: 40px;
@@ -121,8 +121,7 @@ form {
 
 .main-image {
   width: 100%;
-  margin: 5px;
-  margin-top: 50px;
+  margin-top: 70px;
 }
 .units-big-cel {
   font-size: 20px;
