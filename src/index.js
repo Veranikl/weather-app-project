@@ -19,6 +19,12 @@ function weatherData(response) {
   document.querySelector("#max-temp").innerHTML = Math.round(
     response.data.main.temp_max
   );
+  document
+    .querySelector("#big-image")
+    .setAttribute("src", `media/${response.data.weather[0].icon}.png`);
+  document
+    .querySelector("#big-image")
+    .setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchForm(city) {
