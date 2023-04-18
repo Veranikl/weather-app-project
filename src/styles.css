@@ -121,7 +121,8 @@ form {
 
 .main-image {
   width: 100%;
-  margin: 20px;
+  margin: 5px;
+  margin-top: 50px;
 }
 .units-big-cel {
   font-size: 20px;
