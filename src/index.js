@@ -32,6 +32,7 @@ function weatherData(response) {
 function searchForm(city) {
   let apiKey = "d1a86552de255334f6117b348c4519bd";
   let units = "metric";
+
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(weatherData);
 }
@@ -44,6 +45,7 @@ function formInput(event) {
 
 function handlePosition(position) {
   let units = "metric";
+
   let apiKey = "d1a86552de255334f6117b348c4519bd";
   let urlData = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
   axios.get(urlData).then(weatherData);
@@ -124,7 +126,6 @@ function changeTempSystem() {
     changeSmallTemp.forEach((element) => {
       element.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
     });
-
     temperatureSystemButton.innerHTML = "°F to °C";
   } else {
     let changeBigUnit = document.querySelector(".units-big-cel");
@@ -132,6 +133,10 @@ function changeTempSystem() {
     let changeUnits = document.querySelectorAll(".units-cel");
     changeUnits.forEach((element) => {
       element.innerHTML = "°C";
+      let changeSmallTemp = document.querySelectorAll(".small-temp");
+      changeSmallTemp.forEach((element) => {
+        element.innerHTML = Math.round(celsiusTemperature);
+      });
     });
     let changeTemp = document.querySelector(".currentTemp");
     changeTemp.innerHTML = Math.round(celsiusTemperature);
