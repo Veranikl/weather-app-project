@@ -116,10 +116,23 @@ function changeTempSystem() {
     changeBigUnit.innerHTML = "°F";
     let changeTemp = document.querySelector(".currentTemp");
     changeTemp.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+    let changeUnits = document.querySelectorAll(".units-cel");
+    changeUnits.forEach((element) => {
+      element.innerHTML = "°F";
+    });
+    let changeSmallTemp = document.querySelectorAll(".small-temp");
+    changeSmallTemp.forEach((element) => {
+      element.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+    });
+
     temperatureSystemButton.innerHTML = "°F to °C";
   } else {
     let changeBigUnit = document.querySelector(".units-big-cel");
     changeBigUnit.innerHTML = "°C";
+    let changeUnits = document.querySelectorAll(".units-cel");
+    changeUnits.forEach((element) => {
+      element.innerHTML = "°C";
+    });
     let changeTemp = document.querySelector(".currentTemp");
     changeTemp.innerHTML = Math.round(celsiusTemperature);
     temperatureSystemButton.innerHTML = "°C to °F";
