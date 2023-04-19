@@ -25,6 +25,8 @@ function weatherData(response) {
   document
     .querySelector("#big-image")
     .setAttribute("alt", response.data.weather[0].description);
+
+  celsiusTemperature = response.data.main.temp;
 }
 
 function searchForm(city) {
@@ -108,14 +110,25 @@ let localTime = new Date();
 let currentHourMin = document.querySelector(".localTime");
 currentHourMin.innerHTML = timeNow(localTime);
 
-function changeTemperatureSystem() {
-  let changeBigUnit = document.querySelector(".units-big-cel");
-  changeBigUnit.innerHTML = "°F";
-  let changeTemp = document.querySelector(".currentTemp");
-  changeTemp.innerHTML = "88";
+function changeTempSystem() {
+  if (temperatureSystemButton.innerHTML == "°C to °F") {
+    let changeBigUnit = document.querySelector(".units-big-cel");
+    changeBigUnit.innerHTML = "°F";
+    let changeTemp = document.querySelector(".currentTemp");
+    changeTemp.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+    temperatureSystemButton.innerHTML = "°F to °C";
+  } else {
+    let changeBigUnit = document.querySelector(".units-big-cel");
+    changeBigUnit.innerHTML = "°C";
+    let changeTemp = document.querySelector(".currentTemp");
+    changeTemp.innerHTML = Math.round(celsiusTemperature);
+    temperatureSystemButton.innerHTML = "°C to °F";
+  }
 }
 
+let celsiusTemperature = null;
+
 let temperatureSystemButton = document.querySelector(".temperatureSystem");
-temperatureSystemButton.addEventListener("click", changeTemperatureSystem);
+temperatureSystemButton.addEventListener("click", changeTempSystem);
 
 searchForm("Warsaw");
