@@ -32,20 +32,20 @@ function weatherData(response) {
 function searchForm(city) {
   let apiKey = "d1a86552de255334f6117b348c4519bd";
   let units = "metric";
-
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(weatherData);
+  changeTempSystem();
 }
 
 function formInput(event) {
   event.preventDefault();
   let city = document.querySelector("#search-bar").value;
+
   searchForm(city);
 }
 
 function handlePosition(position) {
   let units = "metric";
-
   let apiKey = "d1a86552de255334f6117b348c4519bd";
   let urlData = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
   axios.get(urlData).then(weatherData);
