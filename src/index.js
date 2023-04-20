@@ -29,6 +29,43 @@ function weatherData(response) {
   celsiusTemperature = response.data.main.temp;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let forecastHTML = `<div class="row row-cols-7">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+          <div class="col dayName">
+            ${day}
+            <img
+              class="small-image"
+              src="media/01d.png"
+              alt="Sunny"
+              width="40px"
+            />
+            <p class="forecast-temperature">
+              <span class="future-max-temp">-40</span
+              ><span class="units-cel">°C</span>
+              <span class="future-min-temp">-12</span
+              ><span class="units-cel-min">°C</span>
+            </p>
+          </div>
+            `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function searchForm(city) {
   let apiKey = "d1a86552de255334f6117b348c4519bd";
   let units = "metric";
@@ -122,7 +159,7 @@ function changeTempSystem() {
     changeUnits.forEach((element) => {
       element.innerHTML = "°F";
     });
-    let changeSmallTemp = document.querySelectorAll(".small-temp");
+    let changeSmallTemp = document.querySelectorAll(".future-max-temp");
     changeSmallTemp.forEach((element) => {
       element.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
     });
@@ -133,7 +170,7 @@ function changeTempSystem() {
     let changeUnits = document.querySelectorAll(".units-cel");
     changeUnits.forEach((element) => {
       element.innerHTML = "°C";
-      let changeSmallTemp = document.querySelectorAll(".small-temp");
+      let changeSmallTemp = document.querySelectorAll(".future-max-temp");
       changeSmallTemp.forEach((element) => {
         element.innerHTML = Math.round(celsiusTemperature);
       });
@@ -150,3 +187,4 @@ let temperatureSystemButton = document.querySelector(".temperatureSystem");
 temperatureSystemButton.addEventListener("click", changeTempSystem);
 
 searchForm("Warsaw");
+displayForecast();

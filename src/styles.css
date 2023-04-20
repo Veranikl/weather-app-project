@@ -57,9 +57,9 @@
   font-family: "Poppins", sans-serif;
 }
 
-.temperatureDaysMax,
+.forecast-temperature,
 .temperatureParameters {
-  font-size: 22px;
+  font-size: 16px;
   font-family: "Sintony", sans-serif;
   margin: 0 auto;
 }
@@ -131,9 +131,9 @@ form {
   left: -15px;
 }
 .units-cel {
-  font-size: 16px;
+  font-size: 12px;
   position: relative;
-  top: -4px;
+  top: -3px;
 }
 
 .future-min-temp {
