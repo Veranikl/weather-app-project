@@ -136,10 +136,16 @@ form {
   top: -4px;
 }
 
-.units-min-cel {
-  font-size: 8px;
+.future-min-temp {
+  font-size: 14px;
+  color: #808080;
+}
+
+.units-cel-min {
+  font-size: 10px;
   position: relative;
   top: -4px;
+  color: #808080;
 }
 
 .unitsParameters {
