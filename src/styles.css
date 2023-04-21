@@ -121,6 +121,11 @@ form {
   color: #808080;
 }
 
+.units-cel-min {
+  font-size: 14px;
+  color: #808080;
+}
+
 .sign {
   text-align: center;
   padding-top: 15px;

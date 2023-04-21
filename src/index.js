@@ -54,10 +54,11 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecast = response.data.daily;
   let forecastHTML = `<div class="row row-cols-7">`;
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 8 && index > 0) {
+      forecastHTML =
+        forecastHTML +
+        `
           <div class="col dayName">
             ${formatDay(forecastDay.dt)}
             <img
@@ -78,6 +79,7 @@ function displayForecast(response) {
             </p>
           </div>
             `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -88,6 +90,7 @@ function displayForecast(response) {
   document.querySelector("#max-temp").innerHTML = Math.round(
     response.data.daily[0].temp.max
   );
+  console.log(response.data.daily);
 }
 
 function searchForm(city) {
