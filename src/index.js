@@ -74,11 +74,11 @@ function displayForecast(response) {
               <span class="future-max-temp">${Math.round(
                 forecastDay.temp.max
               )}</span
-              ><span class="units-cel">°C</span>
+              ><span class="units-cel">°</span>
               <span class="future-min-temp">${Math.round(
                 forecastDay.temp.min
               )}</span
-              ><span class="units-cel-min">°C</span>
+              ><span class="units-cel-min">°</span>
             </p>
           </div>
             `;
