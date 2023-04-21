@@ -14,18 +14,15 @@
   border: 4px solid rgba(15, 134, 221, 0.5);
 }
 
-.localisation,
-.currentTemp {
-  font-family: "Poppins", sans-serif;
-}
-
 .localisation {
   font-size: 60px;
   padding-bottom: 20px;
+  font-family: "Poppins", sans-serif;
 }
 .currentTemp {
   font-size: 120px;
   font-weight: 500;
+  font-family: "Poppins", sans-serif;
 }
 
 .mainTemperature {
@@ -36,14 +33,10 @@
   margin-top: 40px;
 }
 
-.temperatureSystem,
-.currentStatus {
-  font-family: "Sintony", sans-serif;
-}
-
 .currentStatus {
   line-height: 20px;
   margin: 0 auto;
+  font-family: "Sintony", sans-serif;
 }
 
 .parameters,
@@ -51,7 +44,6 @@
   text-align: center;
 }
 
-.dayName,
 .parametersName {
   font-size: smaller;
   font-family: "Poppins", sans-serif;
@@ -64,17 +56,9 @@
   margin: 0 auto;
 }
 
-.temperatureDaysMin {
-  font-size: 12px;
-}
-
 form {
   font-family: "Sintony", sans-serif;
   margin: 0 auto;
-}
-
-.formAndButtons {
-  text-align: center;
 }
 
 .btn {
@@ -110,6 +94,7 @@ form {
 .temperatureSystem {
   box-shadow: 3px 3px rgba(243, 182, 31, 0.5);
   border: 2px solid rgba(243, 182, 31, 0.5);
+  font-family: "Sintony", sans-serif;
 }
 
 .temperatureSystem:hover {
@@ -130,19 +115,9 @@ form {
   top: -75px;
   left: -15px;
 }
-.units-cel {
-  font-size: 16px;
-}
 
 .future-min-temp {
   font-size: 14px;
-  color: #808080;
-}
-
-.units-cel-min {
-  font-size: 10px;
-  position: relative;
-  top: -4px;
   color: #808080;
 }
 
