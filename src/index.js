@@ -32,14 +32,15 @@ function weatherData(response) {
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiKey = "d1a86552de255334f6117b348c4519bd";
+  let apiKey = "0a521eaf234a3a56f45252fac3c737ad";
   let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayForecast);
+  console.log(apiUrl);
 }
-
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
   let days = [
     "Sunday",
     "Monday",
@@ -49,23 +50,34 @@ function displayForecast() {
     "Friday",
     "Saturday",
   ];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.daily;
   let forecastHTML = `<div class="row row-cols-7">`;
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
           <div class="col dayName">
-            ${day}
+            ${formatDay(forecastDay.dt)}
             <img
               class="small-image"
-              src="media/01d.png"
-              alt="Sunny"
+              src="media/${forecastDay.weather[0].icon}.png"
+              alt=""
               width="40px"
             />
             <p class="forecast-temperature">
-              <span class="future-max-temp">-40</span
+              <span class="future-max-temp">${Math.round(
+                forecastDay.temp.max
+              )}</span
               ><span class="units-cel">°C</span>
-              <span class="future-min-temp">-12</span
+              <span class="future-min-temp">${Math.round(
+                forecastDay.temp.min
+              )}</span
               ><span class="units-cel-min">°C</span>
             </p>
           </div>
