@@ -13,12 +13,12 @@ function weatherData(response) {
   document.querySelector("#feels-like").innerHTML = Math.round(
     response.data.main.feels_like
   );
-  document.querySelector("#min-temp").innerHTML = Math.round(
+  /*document.querySelector("#min-temp").innerHTML = Math.round(
     response.data.main.temp_min
   );
   document.querySelector("#max-temp").innerHTML = Math.round(
     response.data.main.temp_max
-  );
+  ); */
   document
     .querySelector("#big-image")
     .setAttribute("src", `media/${response.data.weather[0].icon}.png`);
@@ -92,14 +92,13 @@ function searchForm(city) {
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(weatherData);
-  changeTempSystem();
 }
 
 function formInput(event) {
   event.preventDefault();
   let city = document.querySelector("#search-bar").value;
-
   searchForm(city);
+  changeTempSystem();
 }
 
 function handlePosition(position) {
@@ -176,26 +175,11 @@ function changeTempSystem() {
     changeBigUnit.innerHTML = "°F";
     let changeTemp = document.querySelector(".currentTemp");
     changeTemp.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
-    let changeUnits = document.querySelectorAll(".units-cel");
-    changeUnits.forEach((element) => {
-      element.innerHTML = "°F";
-    });
-    let changeSmallTemp = document.querySelectorAll(".future-max-temp");
-    changeSmallTemp.forEach((element) => {
-      element.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
-    });
     temperatureSystemButton.innerHTML = "°F to °C";
   } else {
     let changeBigUnit = document.querySelector(".units-big-cel");
     changeBigUnit.innerHTML = "°C";
-    let changeUnits = document.querySelectorAll(".units-cel");
-    changeUnits.forEach((element) => {
-      element.innerHTML = "°C";
-      let changeSmallTemp = document.querySelectorAll(".future-max-temp");
-      changeSmallTemp.forEach((element) => {
-        element.innerHTML = Math.round(celsiusTemperature);
-      });
-    });
+
     let changeTemp = document.querySelector(".currentTemp");
     changeTemp.innerHTML = Math.round(celsiusTemperature);
     temperatureSystemButton.innerHTML = "°C to °F";
