@@ -27,12 +27,10 @@ function weatherData(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "0a521eaf234a3a56f45252fac3c737ad";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayForecast);
-  console.log(apiUrl);
 }
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -90,7 +88,9 @@ function displayForecast(response) {
   document.querySelector("#max-temp").innerHTML = Math.round(
     response.data.daily[0].temp.max
   );
-  console.log(response.data.daily);
+
+  minTodayTemperatureCel = response.data.daily[0].temp.min;
+  maxTodayTemperatureCel = response.data.daily[0].temp.max;
 }
 
 function searchForm(city) {
@@ -183,6 +183,16 @@ function changeTempSystem() {
     changeTemp.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
     let changeFeelsLike = document.querySelector("#feels-like");
     changeFeelsLike.innerHTML = Math.round((feelsLikeTemperature * 9) / 5 + 32);
+    let maxTodayTemperature = document.querySelector("#max-temp");
+    maxTodayTemperature.innerHTML = Math.round(
+      (maxTodayTemperatureCel * 9) / 5 + 32
+    );
+
+    let minTodayTemperature = document.querySelector("#min-temp");
+    minTodayTemperature.innerHTML = Math.round(
+      (minTodayTemperatureCel * 9) / 5 + 32
+    );
+
     temperatureSystemButton.innerHTML = "°F to °C";
   } else {
     let changeBigUnit = document.querySelector(".units-big-cel");
@@ -192,6 +202,12 @@ function changeTempSystem() {
     changeTemp.innerHTML = Math.round(celsiusTemperature);
     let changeFeelsLike = document.querySelector("#feels-like");
     changeFeelsLike.innerHTML = Math.round(feelsLikeTemperature);
+    let maxTodayTemperature = document.querySelector("#max-temp");
+    maxTodayTemperature.innerHTML = Math.round(maxTodayTemperatureCel);
+
+    let minTodayTemperature = document.querySelector("#min-temp");
+    minTodayTemperature.innerHTML = Math.round(minTodayTemperatureCel);
+
     temperatureSystemButton.innerHTML = "°C to °F";
   }
 }
