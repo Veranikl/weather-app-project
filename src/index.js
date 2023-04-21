@@ -27,6 +27,7 @@ function weatherData(response) {
     .setAttribute("alt", response.data.weather[0].description);
 
   celsiusTemperature = response.data.main.temp;
+  feelsLikeTemperature = response.data.main.feels_like;
   getForecast(response.data.coord);
 }
 
@@ -175,6 +176,8 @@ function changeTempSystem() {
     changeBigUnit.innerHTML = "°F";
     let changeTemp = document.querySelector(".currentTemp");
     changeTemp.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+    let changeFeelsLike = document.querySelector("#feels-like");
+    changeFeelsLike.innerHTML = Math.round((feelsLikeTemperature * 9) / 5 + 32);
     temperatureSystemButton.innerHTML = "°F to °C";
   } else {
     let changeBigUnit = document.querySelector(".units-big-cel");
@@ -182,6 +185,8 @@ function changeTempSystem() {
 
     let changeTemp = document.querySelector(".currentTemp");
     changeTemp.innerHTML = Math.round(celsiusTemperature);
+    let changeFeelsLike = document.querySelector("#feels-like");
+    changeFeelsLike.innerHTML = Math.round(feelsLikeTemperature);
     temperatureSystemButton.innerHTML = "°C to °F";
   }
 }
