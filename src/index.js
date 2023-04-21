@@ -13,12 +13,7 @@ function weatherData(response) {
   document.querySelector("#feels-like").innerHTML = Math.round(
     response.data.main.feels_like
   );
-  /*document.querySelector("#min-temp").innerHTML = Math.round(
-    response.data.main.temp_min
-  );
-  document.querySelector("#max-temp").innerHTML = Math.round(
-    response.data.main.temp_max
-  ); */
+
   document
     .querySelector("#big-image")
     .setAttribute("src", `media/${response.data.weather[0].icon}.png`);
@@ -86,6 +81,13 @@ function displayForecast(response) {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+
+  document.querySelector("#min-temp").innerHTML = Math.round(
+    response.data.daily[0].temp.min
+  );
+  document.querySelector("#max-temp").innerHTML = Math.round(
+    response.data.daily[0].temp.max
+  );
 }
 
 function searchForm(city) {
