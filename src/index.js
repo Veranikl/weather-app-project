@@ -95,7 +95,6 @@ function displayForecast(response) {
 
 function searchForm(city) {
   let apiKey = "d1a86552de255334f6117b348c4519bd";
-  let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(weatherData);
 }
@@ -177,7 +176,8 @@ currentHourMin.innerHTML = timeNow(localTime);
 
 function changeTempSystem() {
   if (temperatureSystemButton.innerHTML == "°C to °F") {
-    let changeBigUnit = document.querySelector(".units-big-cel");
+    units = "imperial";
+    /*let changeBigUnit = document.querySelector(".units-big-cel");
     changeBigUnit.innerHTML = "°F";
     let changeTemp = document.querySelector(".currentTemp");
     changeTemp.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
@@ -192,10 +192,11 @@ function changeTempSystem() {
     minTodayTemperature.innerHTML = Math.round(
       (minTodayTemperatureCel * 9) / 5 + 32
     );
-
+*/
     temperatureSystemButton.innerHTML = "°F to °C";
   } else {
-    let changeBigUnit = document.querySelector(".units-big-cel");
+    units = "metric";
+    /*let changeBigUnit = document.querySelector(".units-big-cel");
     changeBigUnit.innerHTML = "°C";
 
     let changeTemp = document.querySelector(".currentTemp");
@@ -206,7 +207,7 @@ function changeTempSystem() {
     maxTodayTemperature.innerHTML = Math.round(maxTodayTemperatureCel);
 
     let minTodayTemperature = document.querySelector("#min-temp");
-    minTodayTemperature.innerHTML = Math.round(minTodayTemperatureCel);
+    minTodayTemperature.innerHTML = Math.round(minTodayTemperatureCel); */
 
     temperatureSystemButton.innerHTML = "°C to °F";
   }
@@ -216,6 +217,8 @@ let celsiusTemperature = null;
 
 let temperatureSystemButton = document.querySelector(".temperatureSystem");
 temperatureSystemButton.addEventListener("click", changeTempSystem);
+
+let units = "metric";
 
 searchForm("Warsaw");
 displayForecast();
