@@ -28,7 +28,6 @@ function weatherData(response) {
 
 function getForecast(coordinates) {
   let apiKey = "0a521eaf234a3a56f45252fac3c737ad";
-  let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayForecast);
 }
@@ -103,11 +102,10 @@ function formInput(event) {
   event.preventDefault();
   let city = document.querySelector("#search-bar").value;
   searchForm(city);
-  changeTempSystem();
+  //changeTempSystem(units);
 }
 
 function handlePosition(position) {
-  let units = "metric";
   let apiKey = "d1a86552de255334f6117b348c4519bd";
   let urlData = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
   axios.get(urlData).then(weatherData);
@@ -116,6 +114,22 @@ function handlePosition(position) {
 function getPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(handlePosition);
+}
+
+function changeTempSystem() {
+  if (temperatureSystemButton.innerHTML == "°C to °F") {
+    units = "imperial";
+    let changeBigUnit = document.querySelector(".units-big-cel");
+    changeBigUnit.innerHTML = "°F";
+    temperatureSystemButton.innerHTML = "°F to °C";
+  } else {
+    units = "metric";
+    let changeBigUnit = document.querySelector(".units-big-cel");
+    changeBigUnit.innerHTML = "°C";
+    temperatureSystemButton.innerHTML = "°C to °F";
+  }
+  let cityInput = document.querySelector("#city-input").innerHTML;
+  searchForm(cityInput, units);
 }
 
 let getLocationButton = document.querySelector("#buttonLocation");
@@ -173,45 +187,6 @@ function timeNow(time) {
 let localTime = new Date();
 let currentHourMin = document.querySelector(".localTime");
 currentHourMin.innerHTML = timeNow(localTime);
-
-function changeTempSystem() {
-  if (temperatureSystemButton.innerHTML == "°C to °F") {
-    units = "imperial";
-    /*let changeBigUnit = document.querySelector(".units-big-cel");
-    changeBigUnit.innerHTML = "°F";
-    let changeTemp = document.querySelector(".currentTemp");
-    changeTemp.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
-    let changeFeelsLike = document.querySelector("#feels-like");
-    changeFeelsLike.innerHTML = Math.round((feelsLikeTemperature * 9) / 5 + 32);
-    let maxTodayTemperature = document.querySelector("#max-temp");
-    maxTodayTemperature.innerHTML = Math.round(
-      (maxTodayTemperatureCel * 9) / 5 + 32
-    );
-
-    let minTodayTemperature = document.querySelector("#min-temp");
-    minTodayTemperature.innerHTML = Math.round(
-      (minTodayTemperatureCel * 9) / 5 + 32
-    );
-*/
-    temperatureSystemButton.innerHTML = "°F to °C";
-  } else {
-    units = "metric";
-    /*let changeBigUnit = document.querySelector(".units-big-cel");
-    changeBigUnit.innerHTML = "°C";
-
-    let changeTemp = document.querySelector(".currentTemp");
-    changeTemp.innerHTML = Math.round(celsiusTemperature);
-    let changeFeelsLike = document.querySelector("#feels-like");
-    changeFeelsLike.innerHTML = Math.round(feelsLikeTemperature);
-    let maxTodayTemperature = document.querySelector("#max-temp");
-    maxTodayTemperature.innerHTML = Math.round(maxTodayTemperatureCel);
-
-    let minTodayTemperature = document.querySelector("#min-temp");
-    minTodayTemperature.innerHTML = Math.round(minTodayTemperatureCel); */
-
-    temperatureSystemButton.innerHTML = "°C to °F";
-  }
-}
 
 let celsiusTemperature = null;
 
