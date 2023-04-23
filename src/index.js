@@ -102,7 +102,6 @@ function formInput(event) {
   event.preventDefault();
   let city = document.querySelector("#search-bar").value;
   searchForm(city);
-  //changeTempSystem(units);
 }
 
 function handlePosition(position) {
@@ -121,11 +120,15 @@ function changeTempSystem() {
     units = "imperial";
     let changeBigUnit = document.querySelector(".units-big-cel");
     changeBigUnit.innerHTML = "°F";
+    let changeSpeedSystem = document.querySelector("#speed-system");
+    changeSpeedSystem.innerHTML = " mi/h";
     temperatureSystemButton.innerHTML = "°F to °C";
   } else {
     units = "metric";
     let changeBigUnit = document.querySelector(".units-big-cel");
     changeBigUnit.innerHTML = "°C";
+    let changeSpeedSystem = document.querySelector("#speed-system");
+    changeSpeedSystem.innerHTML = " m/s";
     temperatureSystemButton.innerHTML = "°C to °F";
   }
   let cityInput = document.querySelector("#city-input").innerHTML;
@@ -174,15 +177,15 @@ function formatDate(date) {
   return formattedDate;
 }
 
-let localDate = new Date();
-document.querySelector(".dayMonth").innerHTML = formatDate(localDate);
-
 function timeNow(time) {
   let currentHour = time.getHours();
   let currentMinutes = ("0" + time.getMinutes()).slice(-2);
   let formattedTime = `${currentHour}:${currentMinutes}`;
   return formattedTime;
 }
+
+let localDate = new Date();
+document.querySelector(".dayMonth").innerHTML = formatDate(localDate);
 
 let localTime = new Date();
 let currentHourMin = document.querySelector(".localTime");
