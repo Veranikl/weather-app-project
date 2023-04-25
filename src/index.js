@@ -100,7 +100,7 @@ function searchForm(city) {
 
 function formInput(event) {
   event.preventDefault();
-  let city = document.querySelector("#search-bar").value;
+  city = document.querySelector("#search-bar").value;
   searchForm(city);
 }
 
@@ -116,7 +116,7 @@ function getPosition(event) {
 }
 
 function changeTempSystem() {
-  if (temperatureSystemButton.innerHTML == "°C to °F") {
+  if (temperatureSystemButton.innerHTML.includes("°C to °F")) {
     units = "imperial";
     let changeBigUnit = document.querySelector(".units-big-cel");
     changeBigUnit.innerHTML = "°F";
@@ -198,5 +198,7 @@ temperatureSystemButton.addEventListener("click", changeTempSystem);
 
 let units = "metric";
 
-searchForm("Warsaw");
+let city = "Warsaw";
+
+searchForm(city);
 displayForecast();
